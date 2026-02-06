@@ -1,7 +1,7 @@
 {
-	"_copyright": "Copyright 2025 Numorian <contact@numorian.com>",
+	"_copyright": "Copyright 2026 Adam Caudill <me@adamcaudill.com>",
 	"_license": "MIT",
-	"_info": "https://github.com/Numorian/current_versions",
+	"_info": "https://github.com/adcaudill/current_versions",
 	"software": {
 		"apache_httpd": {
 			"latest": "2.4.66"
