@@ -6,7 +6,7 @@ from collections import OrderedDict
 from urllib.request import urlopen
 
 JSON_PATH = "../current_versions.json"
-PHP_DOWNLOADS_URL = "https://www.php.net/downloads.php"
+PHP_DOWNLOADS_URL = "https://www.php.net/downloads.php?source=Y"
 
 # Regex to match PHP version headers like <h3 id="v8.4.10" class="title"> ... PHP 8.4.10 ...
 PHP_VERSION_HEADER_RE = re.compile(
