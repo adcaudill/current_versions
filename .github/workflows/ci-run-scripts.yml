@@ -29,8 +29,10 @@ jobs:
       - name: Run scripts (syntax-check then execute)
         run: |
           set -euo pipefail
+          # Change to scripts directory
+          cd scripts
           # Fail fast if no scripts found
-          files=(scripts/*.py)
+          files=(*.py)
           if [ ${#files[@]} -eq 0 ]; then
             echo "No Python scripts found in scripts/"
             exit 0
