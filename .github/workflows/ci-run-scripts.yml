@@ -38,7 +38,7 @@ jobs:
             exit 0
           fi
           for script in "${files[@]}"; do
-            echo "\n=== Running $script ==="
+            echo "=== Running $script ==="
             python -m py_compile "$script"
             python "$script"
           done
