@@ -1,4 +1,4 @@
-name: CI — Run scripts on changes
+name: CI - Run scripts on changes
 
 on:
   push:
