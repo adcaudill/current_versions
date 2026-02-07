@@ -1,0 +1,42 @@
+name: CI — Run scripts on changes
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+  pull_request:
+    paths:
+      - 'scripts/**'
+  workflow_dispatch:
+
+jobs:
+  run-scripts:
+    name: Run scripts
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Show Python version
+        run: python --version
+
+      - name: Run scripts (syntax-check then execute)
+        run: |
+          set -euo pipefail
+          # Fail fast if no scripts found
+          files=(scripts/*.py)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No Python scripts found in scripts/"
+            exit 0
+          fi
+          for script in "${files[@]}"; do
+            echo "\n=== Running $script ==="
+            python -m py_compile "$script"
+            python "$script"
+          done
